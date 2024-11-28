@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.gradle.test-retry' version '1.5.0'
+    id 'io.github.gradle-nexus.publish-plugin' version '1.1.0'
+}
+
+group 'example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    def defaultBrowser = 'chromium'
+    def defaultUrl = 'https://wikipedia.org'
+    def defaultHeadless = 'true'
+
+    useTestNG() {
+        testLogging.showStandardStreams = true
+        testLogging.showStandardStreams = true
+    }
+    systemProperty "browser", defaultBrowser
+    systemProperty "url", defaultUrl
+    systemProperty "headless", defaultHeadless
+    maxParallelForks = 3
+    systemProperty 'allure.results.directory', file('build/allure-results').absolutePath
+}
+
+tasks.register('cmdRunTests', Test) {
+    useTestNG() {
+        testLogging.showStandardStreams = true
+        testLogging.showStandardStreams = true
+        suiteName = System.getProperty('tag', 'NONE')
+        includeGroups System.getProperty('tag', 'NONE')
+    }
+    systemProperty "browser", System.getProperty("browser")
+    systemProperty "url", System.getProperty("url")
+    systemProperty "headless", System.getProperty("headless")
+    maxParallelForks = 3
+    systemProperty 'allure.results.directory', file('build/allure-results').absolutePath
+}
+
+dependencies {
+    testImplementation 'org.testng:testng:7.10.1'
+    implementation 'com.microsoft.playwright:playwright:1.45.1'
+    testImplementation 'io.qameta.allure:allure-testng:2.29.0'
+}
