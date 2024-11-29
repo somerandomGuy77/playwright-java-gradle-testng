@@ -19,8 +19,12 @@ Run tests via IDE:
 build.gradle test{} config for local IDE execution/debug  
 
 Run tests via CMD:  
-`./gradlew clean cmdRunTests -Dbrowser=chromium -Dtag=regression -Durl=https://wikipedia.org -Dheadless=false --info`  
+`
+./gradlew clean cmdRunTests -Dbrowser=chromium -Dtag=regression -Durl=https://wikipedia.org -Dheadless=false --info
+`  
 Browsers - chromium/firefox/webkit, -Dtag executes tests by TestNG group - sanity/regression  
 
 Display Allure report:  
-`allure serve .\build\allure-results\`
+`
+allure serve .\build\allure-results\
+`
