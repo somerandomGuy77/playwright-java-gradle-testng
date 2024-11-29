@@ -36,7 +36,7 @@ public class HomePageTest extends BaseTest {
         page.navigate(baseUrl);
 
         Allure.step("Set search language");
-        homePage.searchLanguage.selectOption ("English");
+        homePage.searchLanguage.selectOption("English");
 
         Allure.step("Enter search term");
         homePage.searchInput.fill(input);
