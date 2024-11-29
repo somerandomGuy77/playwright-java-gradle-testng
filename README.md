@@ -15,8 +15,12 @@ Key features:
 -No separate test suite maintenance (tests executed by tag/group, managed on test case level)  
 -Rerun tests on failure (using gradle.test-retry)  
 
-Running tests(browsers - chromium/firefox/webkit, -Dtag executes tests by TestNG group):  
-`./gradlew clean cmdRunTests -Dbrowser=chromium -Dtag=regression -Durl=https://wikipedia.org -Dheadless=false --info`
+Run tests via IDE:  
+build.gradle test{} config for local IDE execution/debug  
+
+Run tests via CMD:  
+`./gradlew clean cmdRunTests -Dbrowser=chromium -Dtag=regression -Durl=https://wikipedia.org -Dheadless=false --info`  
+Browsers - chromium/firefox/webkit, -Dtag executes tests by TestNG group - sanity/regression  
 
 Display Allure report:  
 `allure serve .\build\allure-results\`
