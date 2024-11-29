@@ -15,7 +15,7 @@ key features:
 -Rerun tests on failure (using gradle.test-retry)  
 
 running tests(browsers - chromium/firefox/webkit, -Dtag executes tests by TestNG group):  
-`./gradlew clean cmdRunTests -Dbrowser=chromium -Dtag=regression -Durl=https://wikipedia.org -Dheadless=true --info`
+`./gradlew clean cmdRunTests -Dbrowser=chromium -Dtag=regression -Durl=https://wikipedia.org -Dheadless=false --info`
 
 serve allure reports:  
 `allure serve .\build\allure-results\`

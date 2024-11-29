@@ -35,7 +35,7 @@ public class BaseTest {
         baseUrl = System.getProperty("url");
         isHeadless = Boolean.valueOf(System.getProperty("headless"));
 
-        // Create playwright and browse instances
+        // Create playwright and browser instances
         playwright = Playwright.create();
         BrowserFactory browserFactory = new BrowserFactory(playwright);
         browser = browserFactory.launchBrowser(browserName, isHeadless);
