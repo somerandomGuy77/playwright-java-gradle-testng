@@ -21,7 +21,7 @@ public class HomePageTest extends BaseTest {
         assertThat(homePage.welcomeMessage).isVisible();
     }
 
-    @DataProvider(name = "search")
+    @DataProvider(name = "search parameters")
     public static Object[][] searchParameters() {
         return new Object[][] {
                 {"playwright", "Playwright"},
@@ -30,7 +30,7 @@ public class HomePageTest extends BaseTest {
         };
     }
 
-    @Test(description = "Use homepage search", dataProvider = "search", groups ={"regression"})
+    @Test(description = "Use homepage search", dataProvider = "search parameters", groups ={"regression"})
     void searchWiki(String input, String expectedResult) {
         Allure.step("Open homepage");
         page.navigate(baseUrl);

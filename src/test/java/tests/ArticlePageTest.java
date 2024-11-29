@@ -9,7 +9,7 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 public class ArticlePageTest extends BaseTest {
 
     @Test(description = "Open Article edit section and validate results", groups ={"sanity", "regression"})
-    void articleEditSection() {
+    void openEditSection() {
         Allure.step("Open homepage");
         page.navigate(baseUrl);
 
