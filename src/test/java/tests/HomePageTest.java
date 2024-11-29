@@ -24,7 +24,7 @@ public class HomePageTest extends BaseTest {
     @DataProvider(name = "search")
     public static Object[][] searchParameters() {
         return new Object[][] {
-                {"playwright", "123Playwright"},
+                {"playwright", "Playwright"},
                 {"selenium", "Selenium"},
                 {"cypress", "Cypress"}
         };
