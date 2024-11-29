@@ -11,7 +11,6 @@ public class HomePageTest extends BaseTest {
 
     @Test(description = "Open homepage and select language", groups ={"sanity", "regression"})
     void selectLanguage() {
-
         Allure.step("Open homepage");
         page.navigate(baseUrl);
 
@@ -25,17 +24,19 @@ public class HomePageTest extends BaseTest {
     @DataProvider(name = "search")
     public static Object[][] searchParameters() {
         return new Object[][] {
-                {"playwright", "Playwright"},
+                {"playwright", "123Playwright"},
                 {"selenium", "Selenium"},
                 {"cypress", "Cypress"}
         };
     }
 
     @Test(description = "Use homepage search", dataProvider = "search", groups ={"regression"})
-    void shouldSearchWiki(String input, String expectedResult) {
-
+    void searchWiki(String input, String expectedResult) {
         Allure.step("Open homepage");
         page.navigate(baseUrl);
+
+        Allure.step("Set search language");
+        homePage.searchLanguage.selectOption ("English");
 
         Allure.step("Enter search term");
         homePage.searchInput.fill(input);
@@ -46,6 +47,5 @@ public class HomePageTest extends BaseTest {
         assertThat(articlePage.readSection).isVisible();
         assertThat(articlePage.editSection).isVisible();
         assertThat(articlePage.historySection).isVisible();
-
     }
 }

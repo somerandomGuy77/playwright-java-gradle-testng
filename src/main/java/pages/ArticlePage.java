@@ -10,7 +10,6 @@ public class ArticlePage {
     public final Locator historySection;
 
     public ArticlePage(Page page) {
-
         articleHeading = page.locator("//*[@id='firstHeading']/span");
         readSection = page.locator("//*[@id='ca-view']");
         editSection = page.locator("//*[@id='ca-edit']");

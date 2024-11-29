@@ -30,7 +30,6 @@ public class BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     public void beforeEachTest() {
-
         // Config values from build.gradle or cmd arguments
         browserName = System.getProperty("browser");
         baseUrl = System.getProperty("url");
@@ -52,16 +51,14 @@ public class BaseTest {
                 .setSnapshots(true)
                 .setSources(true));
 
+        // Create playwright page and initiate POM pages
         page = context.newPage();
-
         homePage = new HomePage(page);
         articlePage = new ArticlePage(page);
-
     }
 
     @AfterMethod(alwaysRun = true)
     public void afterEachTest() throws IOException {
-
         // Take screenshot and add to report
         InputStream screenshotStream = new ByteArrayInputStream(page.screenshot());
         Allure.addAttachment("Example Screenshot", "image/png", screenshotStream, ".png");
@@ -85,6 +82,5 @@ public class BaseTest {
         // Add video file to report
         InputStream videoStream = Files.newInputStream(videoFile);
         Allure.addAttachment("Test Video", "video/webm", videoStream, ".webm");
-
     }
 }
