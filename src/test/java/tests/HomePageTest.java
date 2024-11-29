@@ -14,7 +14,7 @@ public class HomePageTest extends BaseTest {
         Allure.step("Open homepage");
         page.navigate(baseUrl);
 
-        Allure.step("Select english language");
+        Allure.step("Select English language");
         homePage.englishLanguage.click();
 
         Allure.step("Validate welcome message");
